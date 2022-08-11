@@ -54,6 +54,7 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const refs = document.querySelector('.gallery');
+console.log(refs)
 
 const containerForImages = [];
 
@@ -73,6 +74,16 @@ function createListItemsImages(items) {
     .join('');
    
 };
+
+refs.addEventListener("click", openBigImage);
+ 
+function openBigImage(event) {
+    event.preventDefault();
+
+    if (event.target.nodeName !== "img") {
+        return;
+    }
+}
 
 containerForImages.push(listItemsImages); 
 
