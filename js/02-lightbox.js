@@ -1,12 +1,3 @@
-// Создание и рендер разметки по массиву данных 
-// galleryItems и предоставленному шаблону элемента
-// галереи.Используй готовый код из первого задания.
-
-// Подключение скрипта и стилей библиотеки используя
-//  CDN сервис cdnjs.Необходимо добавить ссылки на 
-//  два файла: simple - lightbox.min.js и simple
-//     - lightbox.min.css.
-
 // Инициализация библиотеки после того как элементы
 //  галереи созданы и добавлены в div.gallery.
 //  Для этого ознакомься с документацией
@@ -53,15 +44,15 @@ function openBigImage(event) {
         return;
     }
 
-    const urlOfBigImage = event.target.dataset.source;
+    var lightbox = new SimpleLightbox('.gallery a', {animationSpeed});
+
 }
-//     const instance = basicLightbox.create(`
-//        <div class="modal">
-//           <img src="${urlOfBigImage}" width="800" height="600">
 
-//       </div>
-// `)
+function animationSpeed(item) {
+   console.log(item)
 
-//     instance.show()
+}
+
+   
     
-// }
+
