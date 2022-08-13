@@ -30,6 +30,7 @@
 
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+
 const refs = document.querySelector('.gallery');
 
 // Создание и рендер разметки по массиву данных
@@ -80,18 +81,28 @@ function openBigImage(event) {
 // jsdelivr и добавь в проект ссылки на минифицированные
 //     (.min) файлы библиотеки.
 
-const script = document.createElement('script');
-script.src = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js";
-document.body.appendChild(script);
+// const script = document.createElement('script');
+// script.src = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js";
+// document.body.appendChild(script);
 
-const link = document.createElement('link');
-link.rel = "stylesheet";
-link.href = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css";
-document.head.appendChild(link);
+// const link = document.createElement('link');
+// link.rel = "stylesheet";
+// link.href = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css";
+// document.head.appendChild(link);
 
 // Открытие модального окна по клику на элементе 
 // галереи.Для этого ознакомься с документацией и
 // примерами.
 // const basicLightbox = require('basiclightbox')
+
+import * as basicLightbox from 'basiclightbox'
+
+const instance = basicLightbox.create(`
+    <div class="modal">
+    <img src="assets/images/image.png" width="800" height="600">
+    </div>
+`)
+
+instance.show()
 
 
