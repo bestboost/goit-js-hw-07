@@ -3,22 +3,6 @@
 // элементам и просмотра полноразмерного изображения 
 // в модальном окне.
 
-// Создание и рендер разметки по массиву данных
-//  galleryItems и предоставленному шаблону элемента
-// галереи.
-
-// Реализация делегирования на div.gallery и 
-// получение url большого изображения.
-
-// // Подключение скрипта и стилей библиотеки 
-// модального окна basicLightbox.Используй CDN сервис 
-// jsdelivr и добавь в проект ссылки на минифицированные
-//     (.min) файлы библиотеки.
-
-// Открытие модального окна по клику на элементе 
-// галереи.Для этого ознакомься с документацией и
-// примерами.
-
 // // Замена значения атрибута src элемента <img> в 
 // модальном окне перед открытием.Используй готовую 
 // разметку модального окна с изображением из примеров
@@ -41,20 +25,16 @@
 // //     />
 // //   </a>
 // // </div>
-// Обрати внимание на то, что изображение обернуто в
-// // ссылку, а значит при клике по умолчанию 
-// пользователь будет перенаправлен на другую страницу.
 
-//     Запрети это поведение по умолчанию.
-// preventDefault(); - метод запрещающий это!!!!
  
 
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-console.log(galleryItems);
-
 const refs = document.querySelector('.gallery');
-console.log(refs)
+
+// Создание и рендер разметки по массиву данных
+//  galleryItems и предоставленному шаблону элемента
+// галереи.
 
 const containerForImages = [];
 
@@ -75,16 +55,43 @@ function createListItemsImages(items) {
    
 };
 
+containerForImages.push(listItemsImages); 
+
+refs.insertAdjacentHTML("afterbegin", containerForImages);
+
+// Реализация делегирования на div.gallery и 
+// получение url большого изображения.
 refs.addEventListener("click", openBigImage);
  
 function openBigImage(event) {
     event.preventDefault();
 
-    if (event.target.nodeName !== "img") {
+    if (event.target.nodeName !== "IMG") {
         return;
     }
+
+    const urlOfBigImage = event.target.dataset.source;
+    console.log(urlOfBigImage);
 }
 
-containerForImages.push(listItemsImages); 
 
-refs.insertAdjacentHTML("afterbegin", containerForImages);
+// // Подключение скрипта и стилей библиотеки 
+// модального окна basicLightbox.Используй CDN сервис 
+// jsdelivr и добавь в проект ссылки на минифицированные
+//     (.min) файлы библиотеки.
+
+const script = document.createElement('script');
+script.src = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js";
+document.body.appendChild(script);
+
+const link = document.createElement('link');
+link.rel = "stylesheet";
+link.href = "https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css";
+document.head.appendChild(link);
+
+// Открытие модального окна по клику на элементе 
+// галереи.Для этого ознакомься с документацией и
+// примерами.
+// const basicLightbox = require('basiclightbox')
+
+
