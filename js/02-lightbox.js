@@ -1,14 +1,3 @@
-// Инициализация библиотеки после того как элементы
-//  галереи созданы и добавлены в div.gallery.
-//  Для этого ознакомься с документацией
-// SimpleLightbox - в первую очередь секции «Usage»
-// и «Markup».
-
-// Посмотри в документации секцию «Options» и 
-// добавь отображение подписей к изображениям из 
-// атрибута alt.Пусть подпись будет снизу и появляется 
-// через 250 миллисекунд после открытия изображения.
-
 import { galleryItems } from './gallery-items.js';
 
 const refs = document.querySelector('.gallery');
@@ -42,17 +31,16 @@ function openBigImage(event) {
 
     if (event.target.nodeName !== "IMG") {
         return;
-    }
-
-    var lightbox = new SimpleLightbox('.gallery a', {animationSpeed});
-
-}
-
-function animationSpeed(item) {
-   console.log(item)
-
-}
-
-   
+    } 
     
+    const div = document.createElement('div.gallery');
 
+    div.class = "gallery";
+    div.href = "${item.original}";
+    div.alt="${item.description}";
+    document.body.appendChild(div);
+  
+    
+    var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt' });
+   
+}
