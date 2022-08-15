@@ -24,6 +24,7 @@ containerForImages.push(listItemsImages);
 
 refs.insertAdjacentHTML("afterbegin", containerForImages);
 
+
 refs.addEventListener("click", openBigImage);
  
 function openBigImage(event) {
@@ -38,9 +39,8 @@ function openBigImage(event) {
     div.class = "gallery";
     div.href = "${item.original}";
     div.alt="${item.description}";
-    document.body.appendChild(div);
-  
-    
-    var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt' });
+    document.body.appendChild(div); 
    
 }
+
+var lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt' });
